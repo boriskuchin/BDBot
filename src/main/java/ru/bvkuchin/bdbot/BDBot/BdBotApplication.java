@@ -8,6 +8,7 @@ public class BdBotApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BdBotApplication.class, args);
-		System.out.printf("hello");      }
+//		Проветка процесса
+		     }
 
 }
