@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>ru.bvkuchin.bdbot</groupId>
 	<artifactId>BDBot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>BDBot</name>
 	<description>Project for BirthDay Boot</description>
 	<properties>
