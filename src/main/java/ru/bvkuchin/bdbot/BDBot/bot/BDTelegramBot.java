@@ -6,9 +6,21 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import ru.bvkuchin.bdbot.BDBot.commands.CommandContainer;
+import ru.bvkuchin.bdbot.BDBot.service.SendBotMessageServiceImpl;
+
+import static ru.bvkuchin.bdbot.BDBot.commands.CommandName.*;
 
 @Component
 public class BDTelegramBot extends TelegramLongPollingBot {
+
+    public static String COMMAND_PREFIX = "/";
+    private final CommandContainer commandContainer;
+
+    public BDTelegramBot() {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    }
+
     @Value("${bot.username}")
     private String username;
 
@@ -24,17 +36,14 @@ public class BDTelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
-            String chatId = update.getMessage().getChatId().toString();
+            if (message.startsWith(COMMAND_PREFIX)) {
+                String commandIdentifier = message.split(" ")[0].toLowerCase();
 
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId);
-            sendMessage.setText(message);
-
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
+                commandContainer.retrieveCommand(commandIdentifier).execute(update);
+            } else {
+                commandContainer.retrieveCommand(NO.getCommandName()).execute(update);
             }
+
         }
     }
 

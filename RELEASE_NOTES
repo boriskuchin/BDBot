@@ -4,3 +4,7 @@
 
 *   added simple telegram bot
 *   added SpringBoot skeleton project
+
+## 0.2.0-SNAPSHOT
+
+*   added 4 commands and Command pattern
