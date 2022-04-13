@@ -13,7 +13,6 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
 
     @Autowired
     public SendBotMessageServiceImpl(BDTelegramBot bdTelegramBot) {
-
         this.bdTelegramBot = bdTelegramBot;
     }
 

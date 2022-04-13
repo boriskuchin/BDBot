@@ -3,7 +3,7 @@ package ru.bvkuchin.bdbot.BDBot.commands;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.bvkuchin.bdbot.BDBot.service.SendBotMessageService;
 
-public class StartCommand implements iCommand {
+public class StartCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
 

@@ -3,7 +3,7 @@ package ru.bvkuchin.bdbot.BDBot.commands;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.bvkuchin.bdbot.BDBot.service.SendBotMessageService;
 
-public class UnknownCommand implements iCommand {
+public class UnknownCommand implements Command {
 
     public static final String UNKNOWN_MESSAGE = "Не понимаю вас \uD83D\uDE1F, напишите /help чтобы узнать что я понимаю.";
 

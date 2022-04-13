@@ -8,11 +8,11 @@ import static ru.bvkuchin.bdbot.BDBot.commands.CommandName.*;
 
 public class CommandContainer {
 
-    private final ImmutableMap<String, iCommand> commandMap;
-    private final iCommand unknownCommand;
+    private final ImmutableMap<String, Command> commandMap;
+    private final Command unknownCommand;
 
     public CommandContainer(SendBotMessageService sendBotMessageService) {
-        commandMap = ImmutableMap.<String, iCommand>builder()
+        commandMap = ImmutableMap.<String, Command>builder()
                 .put(START.getCommandName(), new StartCommand(sendBotMessageService))
                 .put(STOP.getCommandName(), new StopCommand(sendBotMessageService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
@@ -22,7 +22,7 @@ public class CommandContainer {
         unknownCommand = new UnknownCommand(sendBotMessageService);
     }
 
-    public iCommand retrieveCommand(String commandIdentifier) {
+    public Command retrieveCommand(String commandIdentifier) {
         return commandMap.getOrDefault(commandIdentifier, unknownCommand);
     }
 
