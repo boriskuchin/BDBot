@@ -8,3 +8,7 @@
 ## 0.2.0-SNAPSHOT
 
 *   added 4 commands and Command pattern
+
+## 0.3.0-SNAPSHOT
+
+*   changed mvn telegram bot library to new version to fix userID out of range exception

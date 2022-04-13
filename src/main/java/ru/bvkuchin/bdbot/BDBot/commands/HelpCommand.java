@@ -5,7 +5,7 @@ import ru.bvkuchin.bdbot.BDBot.service.SendBotMessageService;
 
 import static ru.bvkuchin.bdbot.BDBot.commands.CommandName.*;
 
-public class HelpCommand implements iCommand {
+public class HelpCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
 
