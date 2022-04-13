@@ -12,3 +12,4 @@
 ## 0.3.0-SNAPSHOT
 
 *   changed mvn telegram bot library to new version to fix userID out of range exception
+*   added tests for all Commands, SendBotMEssageService and CommandContainer
